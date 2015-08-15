@@ -47,15 +47,24 @@ $('#play-button').click(function(){
 	player.playing = !player.playing;
 });
 
+$('#albums').on('click', 'li', function(event){
+	event.preventDefault();
+	player.playlist.push($(this).text());
+	console.log(player.playlist);
+	$('#play-list').append('<div>' + $(this).text() + '</div>');
+});
+
 $(document).ready(function(){
 	albums.forEach(function(album){
 		var albumString = '<div class="album"><h3 class="album-title">' + album.name + '</h3>';
 		albumString += '<div class="album-cover"><img src="img/' + album.image + '" /></div><ul>'
 		album.songs.forEach(function(song){
-			albumString += '<li>' + song.title + '</li>';
+			albumString += '<li class="song">' + song.title + '</li>';
 		});
 		albumString += '</ul><div>';
 		$('#albums').append(albumString);
 	});
 });
+
+
 

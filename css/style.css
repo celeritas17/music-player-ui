@@ -78,6 +78,13 @@ ul li {
   cursor: default;
 }
 
+.playlist-title {
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: #333;
+}
+
 #timeline {
   float: left;
   margin-right: 5px;
