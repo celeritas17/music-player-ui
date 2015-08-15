@@ -1,0 +1,89 @@
+@font-face {font-family: "Brandon Grotesque";}
+
+body {
+  padding: 50px;
+  font: 14px "Brandon Grotesque", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#content {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#now-playing {
+  background-color: #ddd;
+  margin-bottom: 1em;
+}
+
+#library {
+  width: 590px;
+  height: 300px;
+  overflow: auto;
+  background-color: #eee;
+  margin-bottom: 1em;
+  margin-right: 10px;
+}
+
+#play-list {
+  float: right;
+  width: 200px;
+  height: 300px;
+  overflow: auto;
+}
+
+#play-list div {
+  border-bottom: 1px solid #eee;
+}
+
+#play-list div:hover {
+  background-color: #ddd;
+  cursor: default;
+}
+
+#controls {
+  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+  float:right;
+}
+
+.heading {
+  text-align: center;
+}
+
+.album-title {
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.nav-button {
+  font-size: 2em; 
+  cursor: pointer;
+  position: relative;
+  float: left;
+  margin: 0px 10px 0px 10px;
+}
+
+.album {
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.album-cover {
+  float: right;
+  margin-right: 50px;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
