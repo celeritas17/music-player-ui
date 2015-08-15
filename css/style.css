@@ -5,6 +5,25 @@ body {
   font: 14px "Brandon Grotesque", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+img {
+  height: 150px;
+  width: 150px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    background-image: url(add.png);
+    background-repeat: no-repeat;
+    background-position: 0px center; 
+    padding-left: 15px;
+    margin-left: 5px; 
+}
+
 #content {
   width: 800px;
   margin-left: auto;
@@ -32,6 +51,24 @@ body {
   overflow: auto;
 }
 
+#timer {
+  
+}
+
+#controls {
+  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+  float: right;
+  background-color: #ddd;
+  padding:5px;
+  border-radius: 5px;
+  margin-top: -25px;
+}
+
+#player {
+  height: 1px;
+  width: 1px;
+}
+
 #play-list div {
   border-bottom: 1px solid #eee;
 }
@@ -41,9 +78,24 @@ body {
   cursor: default;
 }
 
-#controls {
-  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
-  float:right;
+#timeline {
+  float: left;
+  margin-right: 5px;
+}
+
+#time-elapsed {
+  float: left;
+  margin-right: 5px;
+}
+
+#time-left {
+  float: right;
+}
+
+#current-time {
+  float: left;
+  position: relative;
+  left: 250px;
 }
 
 .heading {
@@ -56,7 +108,7 @@ body {
 }
 
 .nav-button {
-  font-size: 2em; 
+  font-size: 3em; 
   cursor: pointer;
   position: relative;
   float: left;
@@ -65,17 +117,18 @@ body {
 
 .album {
   margin-top: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 
 .album-cover {
   float: right;
   margin-right: 50px;
+  margin-bottom: 10px;
 }
 
-img {
-  height: 150px;
-  width: 150px;
+.album li:hover {
+  background-color: #ddd;
+  width: 125px;
 }
 
 ::-webkit-scrollbar {

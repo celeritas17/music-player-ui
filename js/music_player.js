@@ -12,6 +12,6 @@ function MusicPlayer(){
 var player = new MusicPlayer();
 
 $('#play-button').click(function(){
-	$('#play-button').html(player.playing ? '&#9658;' : '&#9612;&#9612;');
+	$('#play-button').html(player.playing ? '&#9658;' : '&#10074;&#10074;');
 	player.playing = !player.playing;
 });
