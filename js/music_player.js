@@ -6,15 +6,28 @@ function MusicPlayer(){
 	this.currentSongLength = null;
 	this.currentSongTime = 0;
 	this.playlistPos = -1;
-	this.added = {};
 }
 
-MusicPlayer.prototype.nextSong = function(){
-	this.playlistPos++;
-	this.playlistPos = this.playlistPos%this.playlist.length;
+MusicPlayer.prototype.addSong = function(song){
+	this.playlist.push(song);
+};
+
+MusicPlayer.prototype.nextSong = function(skips){
+	this.playlistPos += skips;
+	this.playlistPos = ((this.playlistPos % this.playlist.length) + this.playlist.length) % this.playlist.length; 
 	this.currentSong = this.playlist[this.playlistPos];
 	this.currentSongLength = musicData.songs[this.currentSong].time;
 	this.currentSongTime = 0;	
+};
+
+MusicPlayer.prototype.startPlaylist = function(song, songLength){
+	this.currentSong = song;
+	this.currentSongLength = songLength;	
+	this.nextSong(1);
+};
+
+MusicPlayer.prototype.togglePlay = function(){
+	this.playing = !this.playing;
 }
 
 MusicPlayer.prototype.secondsToSongTime = function(s){
@@ -30,5 +43,3 @@ MusicPlayer.prototype.secondsToSongTime = function(s){
 	}
 	return timeString;
 };
-
-var player = new MusicPlayer();
