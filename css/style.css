@@ -21,7 +21,8 @@ ul li {
     background-repeat: no-repeat;
     background-position: 0px center; 
     padding-left: 15px;
-    margin-left: 15px; 
+    margin-left: 15px;
+    cursor: default; 
 }
 
 #content {
@@ -73,7 +74,7 @@ ul li {
   border-bottom: 1px solid #eee;
 }
 
-#play-list div:hover {
+#play-list div:hover, .current-song {
   background-color: #ddd;
   cursor: default;
 }
@@ -102,7 +103,7 @@ ul li {
 #current-time {
   float: left;
   position: relative;
-  left: 250px;
+  left: 0px;
 }
 
 .heading {
@@ -135,7 +136,7 @@ ul li {
 
 .album li:hover {
   background-color: #ddd;
-  width: 125px;
+  width: 175px;
 }
 
 ::-webkit-scrollbar {
