@@ -11,18 +11,18 @@ img {
 }
 
 ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 ul li {
-    background-image: url(add.png);
-    background-repeat: no-repeat;
-    background-position: 0px center; 
-    padding-left: 15px;
-    margin-left: 15px;
-    cursor: default; 
+  background-image: url(add.png);
+  background-repeat: no-repeat;
+  background-position: 0px center; 
+  padding-left: 15px;
+  margin-left: 15px;
+  cursor: default; 
 }
 
 #content {
@@ -50,10 +50,6 @@ ul li {
   width: 200px;
   height: 300px;
   overflow: auto;
-}
-
-#timer {
-  
 }
 
 #controls {
@@ -136,7 +132,7 @@ ul li {
 
 .album li:hover {
   background-color: #ddd;
-  width: 175px;
+  width: 150px;
 }
 
 ::-webkit-scrollbar {
