@@ -2,6 +2,17 @@ function startSongTimer(player){
 	player.timer = setInterval(function(){
 		renderTime(player, player.currentSongTime);
 	}, 1000);
+	animation = startTimerAnimation(player);
+}
+
+function startTimerAnimation(player){
+	var timeStep = 200;
+	var timerLength = 493; // pixels; a hack for timer animation
+	var steps = player.currentSongLength*1000/timeStep;
+	var stepSize = timerLength/steps;
+	return setInterval(function(){
+		moveTimer(player, stepSize, timerLength);
+	}, timeStep);
 }
 
 function startPlaylist(player, song){
@@ -9,7 +20,7 @@ function startPlaylist(player, song){
 	renderTime(player, 0);
 	togglePlay(player);
 	$('div.' + player.playlistPos).addClass('current-song');
-};
+}
 
 function togglePlay(player){
 	if (player.playlist.length){
@@ -19,17 +30,20 @@ function togglePlay(player){
 		
 		if (!player.playing){
 			clearInterval(player.timer);
+			clearInterval(animation);
 		}
 		else {
 			startSongTimer(player);
 		}
 	}
-};
+}
 
 function skipSong(player, skips){
+	clearInterval(player.timer);
 	$('div.' + player.playlistPos).removeClass('current-song');
 	player.nextSong(skips);	
 	renderTime(player, 0);
+	clearAnimation(animation);
 	$('div.' + player.playlistPos).addClass('current-song');
 	if (player.playing){
 		startSongTimer(player);
@@ -38,7 +52,20 @@ function skipSong(player, skips){
 	else {
 		$('marquee').text('Paused - ' + player.currentSong);
 	}
-};
+}
+
+function moveTimer(player, stepSize, maxLength){
+	var currentTime = parseFloat($('#current-time').css('left'));
+	if (player.currentSongTime <= player.currentSongLength){
+		if (currentTime < maxLength){
+			$('#current-time').css('left', (currentTime + stepSize) + 'px');
+		}
+	}
+	else {
+		clearInterval(animation);
+		$('#current-time').css('left', 2);	
+	}
+}
 
 function renderTime(player, elapsedTime){
 	if (player.currentSongTime <= player.currentSongLength){
@@ -47,15 +74,18 @@ function renderTime(player, elapsedTime){
 		player.currentSongTime++;
 	}
 	else {
-		clearInterval(player.timer);
-		if (player.playlistPos < player.playlist.length){
-			skipSong(player, 1);
-		}
+		skipSong(player, 1);
 	}
-};
+}
+
+function clearAnimation(animation){
+	clearInterval(animation);
+	$('#current-time').css('left', 2);
+}
 
 $(document).ready(function(){
-	var player = new MusicPlayer();
+	var player = new MusicPlayer()
+	var animation;
 
 	musicData.albums.forEach(function(album){
 		var albumString = '<div class="album"><h3 class="album-title">' + album.name + '</h3>';
@@ -73,14 +103,12 @@ $(document).ready(function(){
 
 	$('#next-song').click(function(){
 		if (player.playlist.length){
-			clearInterval(player.timer);
 			skipSong(player, 1);
 		}
 	});
 
 	$('#last-song').click(function(){
 		if (player.playlist.length){
-			clearInterval(player.timer);
 			skipSong(player, -1);
 		}
 	});
