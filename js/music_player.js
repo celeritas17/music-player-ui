@@ -27,9 +27,8 @@ MusicPlayer.prototype.nextSong = function(skips, toSongNum){
 	this.currentSongTime = 0;	
 };
 
-MusicPlayer.prototype.startPlaylist = function(song, songLength){
+MusicPlayer.prototype.startPlaylist = function(song){
 	this.currentSong = song;
-	this.currentSongLength = songLength;	
 	this.nextSong(1);
 };
 

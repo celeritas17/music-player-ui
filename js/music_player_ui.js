@@ -16,7 +16,7 @@ function startTimerAnimation(player){
 }
 
 function startPlaylist(player, song){
-	player.startPlaylist(song, player.musicData.songs[song].time);
+	player.startPlaylist(song);
 	renderTime(player, 0, 200);
 	togglePlay(player);
 	$('div.' + player.playlistPos).addClass('current-song');
