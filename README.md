@@ -1,5 +1,5 @@
 #Music Player UI
 
-##Top Secret
+A simulation of a music player. Clone the repository and open `index.html` in your browser. 
 
-##Here Be Dragons
+##Enjoy it [Here!](http://ryankoven.com/music_player)

@@ -35,7 +35,7 @@ MusicPlayer.prototype.startPlaylist = function(song, songLength){
 
 MusicPlayer.prototype.togglePlay = function(){
 	this.playing = !this.playing;
-}
+};
 
 MusicPlayer.prototype.secondsToSongTime = function(s){
 	var timeString;
