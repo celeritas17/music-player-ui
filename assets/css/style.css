@@ -12,14 +12,14 @@ img {
 
 ul {
   list-style-type: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
   background-image: url(add.png);
   background-repeat: no-repeat;
-  background-position: 0px center; 
+  background-position: 0 center;
   padding-left: 15px;
   margin-left: 15px;
   cursor: default; 
@@ -107,8 +107,7 @@ ul li {
 }
 
 .album-title {
-  padding: 5px;
-  padding-left: 15px;
+  padding: 5px 0 0 15px;
 }
 
 .nav-button {
@@ -116,7 +115,7 @@ ul li {
   cursor: pointer;
   position: relative;
   float: left;
-  margin: 0px 10px 0px 10px;
+  margin: 0 10px 0 10px;
 }
 
 .album {
