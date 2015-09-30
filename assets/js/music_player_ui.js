@@ -1,3 +1,9 @@
+var audioID = document.getElementById("myAudio");
+
+function startMP3(){
+    audioID.play();
+}
+
 function startSongTimer(player){
 	player.timer = setInterval(function(){
 		renderTime(player, player.currentSongTime, 200);
@@ -20,6 +26,7 @@ function startPlaylist(player, song){
 	renderTime(player, 0, 200);
 	togglePlay(player);
 	$('div.' + player.playlistPos).addClass('current-song');
+    startMP3.play();
 }
 
 function togglePlay(player){
@@ -91,14 +98,14 @@ function clearAnimation(animation){
 }
 
 $(document).ready(function(){
-	var player = new MusicPlayer(musicData)
+	var player = new MusicPlayer(musicData);
 	var animation;
 
 	player.musicData.albums.forEach(function(album){
 		var albumString = '<div class="album"><h3 class="album-title">' + album.name + '</h3>';
-		albumString += '<div class="album-cover"><img src="img/' + album.image + '" /></div><ul>'
+		albumString += '<div class="album-cover"><img src="img/' + album.image + '" /></div><ul>';
 		album.songs.forEach(function(song){
-			albumString += '<li class="song">' + song.title + '</li>';
+			albumString += '<li class="song">' + song.title + '<audio id="myAudio"><source src="audio/../assets/audio/' + song.file + '" type="audio/mpeg"></audio></li>';
 		});
 		albumString += '</ul><div>';
 		$('#albums').append(albumString);
